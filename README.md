@@ -1,2 +1,2 @@
-# PoeticianPolybar i3
-ArcoLinux Poetician 13 config with Polybar
+# PoeticianEdition with i3 running two Polybars
+ArcoLinux Poetician 13 config for Polybar
