@@ -1,0 +1,446 @@
+# KEY DEFINITIONS TO REMEMBER
+
+# $Mod = WINDOWS key or Super key or Mod4
+# Mod1 = ALT key
+# Control = CTRL key
+# Shift = SHIFT key
+# Escape = ESCAPE key
+# Return = ENTER or RETURN key
+# KP_Enter = Keypad Enter
+# Pause = PAUSE key
+# Print = PRINT key
+# Tab = TAB key
+
+# Movement keys for qwerty
+set $up l
+set $down k
+set $left j
+set $right semicolon
+
+# move focused container to workspace
+ $mod+Shift+1 move container to workspace 1; workspace 1
+ $mod+Shift+2 move container to workspace 2; workspace 2
+ $mod+Shift+3 move container to workspace 3; workspace 3
+ $mod+Shift+4 move container to workspace 4; workspace 4
+ $mod+Shift+5 move container to workspace 5; workspace 5
+ $mod+Shift+6 move container to workspace 6; workspace 6
+ $mod+Shift+7 move container to workspace 7; workspace 7
+ $mod+Shift+8 move container to workspace 8; workspace 8
+ $mod+Shift+9 move container to workspace 9; workspace 9
+ $mod+Shift+0 move container to workspace 10; workspace 10
+
+################# 3 menu's in arcolinux #################
+
+# start dmenu $         mod+shift+d
+# gmrun                 mod1+F2
+# start xfce-appfinder  mod1+F3
+
+# start rofi full       $mod+F11 exec --no-startup-id rofi -show run -fullscreen -font "Noto Sans 13"
+
+# start rofi small      $mod+F12 exec --no-startup-id rofi -show run -font "Noto Sans 13"
+
+################# How to exit, logoff, suspend, ... #################
+ # ArcoLinux Logout     control+mod1+X
+                        $mod+Shift+e
+                        $mod+X
+
+################# Reload changed configuration #################
+# restart i3 inplace            $mod+Shift+r
+# reload the configuration file $mod+Shift+c
+
+################# Stopping an application #################
+
+# kill focused window   $mod+Shift+q
+                        $mod+q
+
+################# Moving around in i3 #################
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# toggle tiling / floating
+ $mod+Shift+space
+
+# change focus
+ $mod+$left focus left
+ $mod+$down focus down
+ $mod+$up focus up
+ $mod+$right focus right
+
+# alternatively, you can use the cursor keys:
+ $mod+Left focus left
+ $mod+Down focus down
+ $mod+Up focus up
+ $mod+Right focus right
+
+# move focused window
+ $mod+Shift+$left move left
+ $mod+Shift+$down move down
+ $mod+Shift+$up move up
+ $mod+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+ $mod+Shift+Left move left
+ $mod+Shift+Down move down
+ $mod+Shift+Up move up
+ $mod+Shift+Right move right
+
+################# Moving around workspaces #################
+
+# next/previous workspace
+ Mod1+Tab workspace next
+ Mod1+Shift+Tab workspace prev
+ $mod+Tab workspace back_and_forth
+
+#navigate workspaces next / previous
+ Mod1+Ctrl+Right workspace next
+ Mod1+Ctrl+Left workspace prev
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+################# Tiling parameters #################
+
+# orientation for new workspaces
+default_orientation horizontal
+
+# split in horizontal orientation
+ $mod+h split h
+
+# split in vertical orientation
+ $mod+v split v
+
+# enter fullscreen mode for the focused container
+# Super + F in arcolinux is execute thunar
+ $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+# qwerty/azerty issue for letter z
+ $mod+s layout stacking
+ $mod+z layout tabbed
+ $mod+e layout toggle split
+
+# change focus between tiling / floating windows
+ $mod+space focus mode_toggle
+
+# focus the parent container
+ $mod+a focus parent
+
+# focus the child container
+# $mod+d focus child
+
+################# resize #################
+#####################################################################################################################
+
+
+# resize window (you can also use the mouse for that)
+
+ $mod+r mode "resize"
+
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+         $left       resize shrink width 10 px or 10 ppt
+         $down       resize grow height 10 px or 10 ppt
+         $up         resize shrink height 10 px or 10 ppt
+         $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+         Left        resize shrink width 10 px or 10 ppt
+         Down        resize grow height 10 px or 10 ppt
+         Up          resize shrink height 10 px or 10 ppt
+         Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+         Return mode "default"
+         Escape mode "default"
+}
+
+################# Assign applications to workspaces #################
+
+# Workspace 1 browser related
+#assign [class="Firefox|Vivaldi-stable|Vivaldi-snapshot|Opera"]                      → 1
+#assign [class="Chromium|Google-chrome"]                                             → 1
+
+# Workspace 2 text editor related
+#assign [class="sublime-text|sublime_text|Sublime_text|subl|Subl|subl3|Subl3"]       → 2
+#assign [class="Xed|xed|Brackets|Atom|Code|Geany"]                                   → 2
+
+# Workspace 3 Inkscape
+#assign [class="Inkscape"]                                                           → 3
+
+# Workspace 4 Gimp
+#assign [class="Gimp"]                                                               → 4
+
+# Workspace 5 Images and meld
+#assign [class="ristretto|Ristretto|shotwell|Shotwell|Xviewer|Nitrogen"]             → 5
+#assign [class="feh|gthumb|Gthumb|eog|Eog|Pinta|pixeluvo|Pixeluvo"]                  → 5
+#assign [class="Meld"]                                                               → 5
+
+# Workspace 6 all video related software
+#assign [class="Vlc|vlc"]                                                            → 6
+
+# Workspace 7 virtual machines and settings
+#assign [class="Vmplayer|VirtualBox"]						    → 7
+
+# Workspace 8 file managers
+#assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"]                                 → 8
+
+# Workspace 9 email clients
+#assign [class="Geary|Evolution"]                                                    → 9
+
+# Workspace 10 music related
+#assign [class="Spotify|spotify"]                                                    → 10
+#fix for spotify not moving to workspace 10
+#for_window [class="Spotify"] move to workspace 10
+
+################# Applications keyboard shortcuts #################
+
+# ArcoLinux Welcome App
+ control+mod1+w exec --no-startup-id arcolinux-welcome-app
+
+# ArcoLinux Tweak Tool
+ control+mod1+e exec --no-startup-id arcolinux-tweak-tool
+
+# Conky
+ $mod+c exec --no-startup-id conky-toggle
+ control+mod1+Next exec --no-startup-id conky-rotate -n
+ control+mod1+Prior exec --no-startup-id conky-rotate -p
+
+# Terminal
+ $mod+Return exec --no-startup-id termite;focus
+ $mod+KP_Enter exec --no-startup-id termite;focus
+ control+mod1+t exec --no-startup-id termite; focus
+ control+mod1+Return exec --no-startup-id termite; focus
+ control+mod1+KP_Enter exec --no-startup-id termite; focus
+ F12 exec --no-startup-id xfce4-terminal --drop-down; focus
+
+# System monitor
+ control+Shift+Escape exec --no-startup-id xfce4-taskmanager;focus
+
+# Settings
+ control+mod1+m exec --no-startup-id xfce4-settings-manager
+
+#catfish
+ control+mod1+c exec --no-startup-id catfish;focus
+
+#arcolinux-logout
+ control+mod1+k exec --no-startup-id arcolinux-logout
+ control+mod1+l exec --no-startup-id arcolinux-logout
+
+#rofi theme selector
+ control+mod1+r exec --no-startup-id rofi-theme-selector
+
+#arcolinux conflict
+# $mod+m exec --no-startup-id pragha;focus
+
+#htop
+#arcolinux conflict
+# $mod+h exec --no-startup-id htop;focus
+
+#pavucontrol
+#arcolinux conflict
+ control+mod1+u exec --no-startup-id pavucontrol
+
+# start xfce-appfinder
+#arcolinux does not seem to work
+ control+mod1+a exec --no-startup-id xfce4-appfinder
+
+#pamac-manager
+ control+mod1+p exec --no-startup-id pamac-manager
+
+#xkill
+ --release $mod+Escape exec xkill
+
+#workspace related
+
+#workspace 1 related
+ $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
+#qwerty/azerty conflict with w
+ $mod+w exec --no-startup-id exo-open --launch webbrowser;focus
+ control+mod1+f exec --no-startup-id firefox;focus
+ control+mod1+v exec --no-startup-id vivaldi-stable;focus
+ control+mod1+g exec --no-startup-id chromium;focus
+
+#workspace 2 related
+# $mod+F2 exec --no-startup-id geany;focus
+ $mod+F2 exec --no-startup-id atom;focus
+
+#workspace 3 related
+ $mod+F3 exec --no-startup-id inkscape;focus
+
+#workspace 4 related
+ $mod+F4 exec --no-startup-id gimp;focus
+
+#workspace 5 related
+ $mod+F5 exec --no-startup-id meld;focus
+ control+mod1+i exec --no-startup-id nitrogen;focus
+
+#workspace 6 related
+ $mod+F6 exec --no-startup-id vlc;focus
+
+#workspace 7 related
+ $mod+F7 exec --no-startup-id virtualbox;focus
+
+#workspace 8 related
+for_window [class="Thunar"] focus
+ $mod+F8 exec --no-startup-id thunar;focus
+ $mod+Shift+Return exec --no-startup-id thunar;focus
+ $mod+Shift+KP_Enter exec --no-startup-id thunar;focus
+ control+mod1+b exec --no-startup-id thunar;focus
+
+#workspace 9 related
+ $mod+F9 exec --no-startup-id evolution;focus
+# $mod+F9 exec --no-startup-id geary;focus
+# control+mod1+e exec --no-startup-id geary;focus
+
+#workspace 10 related
+ $mod+F10 exec --no-startup-id spotify;focus
+ control+mod1+s exec --no-startup-id spotify;focus
+
+################# Screenshots #################
+ Print exec --no-startup-id scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
+ Control+Print exec --no-startup-id xfce4-screenshooter
+ Control+Shift+Print exec --no-startup-id gnome-screenshot -i
+# shift+Print exec --no-startup-id shutter
+
+################# Variety for your wallpapers #################
+#Variety keybindings mod1 = ALT
+# trash wallpaper
+ mod1+t exec --no-startup-id variety -t
+# next wallpaper
+ mod1+n exec --no-startup-id variety -n
+ mod1+Right exec --no-startup-id variety -n
+# previous wallpaper
+ mod1+p exec --no-startup-id variety -p
+ mod1+Left exec --no-startup-id variety -p
+# favorite wallpaper
+ mod1+f exec --no-startup-id variety -f
+# pause wallpaper
+ mod1+Up exec --no-startup-id variety --pause
+# resume wallpaper
+ mod1+Down exec --no-startup-id variety --resume
+
+################# Variety with pywal for your wallpapers #################
+# next wallpaper
+ mod1+Shift+n exec --no-startup-id variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+# previous wallpaper
+ mod1+Shift+p exec --no-startup-id variety -p && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+# trash wallpaper
+ mod1+Shift+t exec --no-startup-id variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+# Update Wallpaper
+ mod1+Shift+u exec --no-startup-id wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)
+
+################# Audio settings #################
+ XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
+ XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '5%-'"
+ XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle"
+#https://github.com/acrisci/playerctl/
+ XF86AudioPlay exec --no-startup-id playerctl play-pause
+ XF86AudioNext exec --no-startup-id playerctl next
+ XF86AudioPrev exec --no-startup-id playerctl previous
+ XF86AudioStop exec --no-startup-id playerctl stop
+# XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+# XF86AudioNext exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+# XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+# XF86AudioStop exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+
+
+#####################################################################################################################
+#################                          xbacklight                                               #################
+#####################################################################################################################
+
+ XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
+ XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
+
+# bar toggle, hide or show
+ $mod+b bar mode toggle
+
+# Border control
+ $mod+shift+b exec --no-startup-id i3-msg border toggle
+
+#changing border style
+#super+t in arcolinux is starting terminal
+ $mod+t border normal
+ $mod+y border 1pixel
+ $mod+u border none
+
+#new_window pixel 1
+new_window normal
+#new_window none
+
+#new_float pixel 1
+new_float normal
+#new_float none
+
+#################                          i3 gaps change                                           #################
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+ $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+         o      mode "$mode_gaps_outer"
+         i      mode "$mode_gaps_inner"
+         Return mode "default"
+         Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+         plus  gaps inner current plus 5
+         minus gaps inner current minus 5
+         0     gaps inner current set 0
+
+         Shift+plus  gaps inner all plus 5
+         Shift+minus gaps inner all minus 5
+         Shift+0     gaps inner all set 0
+
+         Return mode "default"
+         Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+         plus  gaps outer current plus 5
+         minus gaps outer current minus 5
+         0     gaps outer current set 0
+
+         Shift+plus  gaps outer all plus 5
+         Shift+minus gaps outer all minus 5
+         Shift+0     gaps outer all set 0
+
+         Return mode "default"
+         Escape mode "default"
+}
+
+#################                          picom of i3wm                                          #################
+
+#if you want transparency on non-focused windows, ...
+exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
+
+ control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
+
+#  Mod1+minus scratchpad show
+
+#####################################################################################################################
+#################                          mouse settings in i3                                     #################
+#####################################################################################################################
+
+# NOT USED
+
+# mouse settings
+# The middle button over a titlebar kills the window
+#  --release button2 kill
+
+# The middle button and a modifer over any part of the window kills the window
+#  --whole-window $mod+button2 kill
+
+# The right button toggles floating
+#  button3 floating toggle
+#  $mod+button3 floating toggle
+
+# The side buttons move the window around
+#  button9 move left
+#  button8 move right
