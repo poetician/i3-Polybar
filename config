@@ -1,5 +1,5 @@
-# ㄗ 𑁣 𑁗 ፖ ༑ ᙅ ༑ ₳ ⴄ 𓁿Ꝣᰃ𑊸 <PolybarEdition>
-#ᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜ#
+# ㄗ 𑁣 𑁗 ፖ ༑ ᙅ ༑ ₳ ⴄ 𓁿Ꝣᰃ𑊸 <>PolybarEdition<>
+#ᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜ#
 
 # https://thenextpoetician.blogspot.com/      # https://pastebin.com/u/poetician
 
@@ -64,14 +64,14 @@ bindsym $mod+x exec arcolinux-logout
 #ᰜᰜᰜᰜᰜᰜ Workspace Appearance ᰜᰜᰜᰜᰜᰜ#
 
 ##START THEMING
-#Theme name : Maple Leaves 1010
+#Theme name : 0011 Maple Leaves_1010
 
 # class                 border    background text    indicator child-border
 client.placeholder      #00000000 #00000000  #4f433f #00000000 #7f2f49
 client.background       #00000000
-client.unfocused        #00000000 #00000000  #fcc48a #00000000 #551400
+client.unfocused        #00000000 #00000000  #fcc48a #00000000 #a16047
 client.focused          #00000000 #00000000  #B87333 #00000000 #220000
-client.focused_inactive #00000000 #00000000  #4f433f #00000000 #a16047
+client.focused_inactive #00000000 #00000000  #4f433f #00000000 #551400
 client.urgent           #00000000 #00000000  #a16b1c #000000   #ffffff
 
 ##STOP THEMING
@@ -140,7 +140,7 @@ popup_during_fullscreen leave_fullscreen
 set $ws1 "1"
 assign [class="firefox"] $ws1
 for_window [class="firefox"]focus
-exec firefox
+exec --no-startup-id firefox
 bindsym $mod+F1 exec firefox
 
 set $ws2 "2"
@@ -148,21 +148,22 @@ assign [class="Atom|Nemo"] $ws2
 for_window [class="Atom|Nemo"]focus
 for_window [class="Nemo-terminal-prefs"]focus, floating enable
 bindsym $mod+F2 exec atom ~/.config/i3/config && atom ~/.config/polybar/config && atom ~/.config/jgmenu/jgmenurc
-exec nemo
+exec --no-startup-id nemo
 bindsym $mod+Shift+Return exec nemo
 
 set $ws3 "3"
 assign [class="Cherrytree|Xfce4-dict"] $ws3
 for_window  [class="Cherrytree"]focus, floating enable, resize set 1100 980, move position 20 50
-exec cherrytree
+exec --no-startup-id cherrytree
 bindsym $mod+control+t exec cherrytree
 for_window [class="Xfce4-dict"]focus, floating enable, resize set 480 980, move position 1180 50
 bindsym $mod+control+d exec xfce4-dict
 
 set $ws4 "4"
-assign [class="libreoffice"] $ws4
+assign [class="libreoffice|FreeMind"] $ws4
 for_window [class="libreoffice"]focus
-exec libreoffice
+exec --no-startup-id libreoffice
+bindsym $mod+Shift+g exec freemind
 bindsym $mod+F4 exec libreoffice
 
 set $ws5 "5"
@@ -171,8 +172,9 @@ for_window [class="kdenlive"]focus
 bindsym $mod+F5 exec kdenlive
 
 set $ws6 "6"
-assign [class="Gimp-2.10"] $ws6
-for_window [class="Gimp-2.10"]focus
+assign [class="Darktable|Gimp-2.10"] $ws6
+for_window [class="Darktable|Gimp-2.10"]focus
+bindsym $mod+Shift+d exec darktable
 bindsym $mod+F6 exec gimp-2.10
 for_window [instance="script-fu"] border normal
 for_window [title="Copying"] floating enable
@@ -186,7 +188,7 @@ for_window [window_role="setup"] floating enable
 set $ws7 "7"
 assign [class="Google Earth Pro"] $ws7
 for_window [class="Google Earth Pro"]focus
-bindsym $mod+F7 exec google-earth-pro
+bindsym $mod+F7 exec --no-startup-id google-earth-pro
 
 set $ws8 "8"
 assign [class="Audio Recorder|obs"] $ws8
@@ -197,13 +199,15 @@ bindsym $mod+F8 exec obs
 set $ws9 "9"
 assign [class="Meld"] $ws9
 for_window [class="Meld"]focus, floating enable, resize set 1912 1008, move position 1924 36
-exec meld
+exec --no-startup-id meld
 bindsym $mod+F9 exec meld
 
 set $ws10 "10"
-assign [class="VirtualBox|VirtualBox Manager|VirtualBox Machine"] $ws10
+assign [class="kcolorchooser|VirtualBox|VirtualBox Manager|VirtualBox Machine"] $ws10
+for_window [class="kcolorchooser"]focus, move position 2000 550
 for_window [class="VirtualBox Machine|VirtualBox Manager"]focus, floating disable
 for_window [class="VirtualBox"] move position 1920 480
+bindsym $mod+Shift+k exec kcolorchooser
 exec --no-startup-id virtualbox manager
 bindsym $mod+F10 exec virtualbox manager
 
@@ -215,38 +219,40 @@ bindsym $mod+control+b exec blender
 
 set $ws12 "12"
 assign [class="Kazam|qBittorrent|Timeshift-gtk|Transmission-gtk|VokoscreenNG"] $ws12
-for_window [class="Timeshift-gtk"] floating enable, move position 1925 60, resize set 760 950
-for_window [class="Transmission-gtk"] floating enable, move position 2820 60, resize set 900 480
-for_window [class="qBittorrent"] floating enable, move position 2690 60, resize set 1145 950
+for_window [class="Timeshift-gtk"] floating enable, resize set 760 950, move position 1925 60
+for_window [class="Transmission-gtk"] floating enable, resize set 900 480, move position 2820 60
+for_window [class="qBittorrent"] floating enable, resize set 1145 950, move position 2690 60
 for_window [class="Kazam"] move position 1940 40
 bindsym $mod+F11 exec timeshift-launcher
 bindsym $mod+F12 exec qbittorrent
-exec qbittorrent
+exec --no-startup-id qbittorrent
 
 set $ws13 "13"
-assign [class="vlc|Xscreensaver-demo"] $ws13
-for_window [class="Xscreensaver-demo"] floating enable, resize set 1420 800, move position 2170 60
-exec_always xscreensaver
-exec xscreensaver-demo
+assign [class="Audacious|vlc|Xscreensaver-demo"] $ws13
+for_window [class="Xscreensaver-demo"] floating enable, resize set 1220 700, move position 2270 40
+exec_always --no-startup-id xscreensaver
+exec --no-startup-id xscreensaver-demo
 bindsym $mod+control+x exec xscreensaver-demo
-for_window [class="vlc"] floating enable, move position 2170 900, resize set 1420 120
-exec --no-startup-id vlc
+for_window [class="Audacious"] floating enable, resize set 700 260, move position 2530 760
+#resize set 1420 120, move position 2170 900
+exec no-startup-id audacious
+exec vlc
 bindsym $mod+F3 exec vlc
 
 set $ws14 "14"
 assign [class="Virt-manager|Oomox|__main__.py"] $ws14
-for_window [class="Virt-machine"]focus, floating disable
-for_window [class="Oomox"]focus, floating enable, resize set 1060 980, move position 1930 50
-for_window [class="Lxappearance"]focus, floating enable, move position 3000 110, resize set 835 720
+for_window [class="Virt-machine"] focus, floating disable
+for_window [class="Oomox"] focus, floating enable, resize set 1030 980, move position 1930 50
+for_window [class="Lxappearance"] focus, floating enable, resize set 805 760, move position 3030 115
 bindsym $mod+l exec lxappearance
 bindsym $mod+o exec oomox-gui
 bindsym $mod+control+v exec virt-manager
 
 #############################################
 #ᰜᰜᰜᰜᰜᰜ Application Launching ᰜᰜᰜᰜᰜᰜ#
-set $rofi exec rofi -show-icons -font "Federation 11"
+set $rofi exec rofi -show-icons -lines 8 -columns 2 -eh 2 -padding 100 -width 60 -font "Federation 11"
 # Start drun Mode
-bindsym $mod+g $rofi -show drun -lines 8 -columns 3 -eh 2 -width 74 -padding 200
+bindsym $mod+g $rofi -show drun
 # Start Rofi Combi Mode
 bindsym $mod+control+c $rofi -show combi
 # Start Rofi Window Mode
@@ -268,22 +274,22 @@ bindsym $mod+control+a exec gnome-calendar
 for_window [class="Org.gnome.clocks"] floating enable, resize set 350 477
 bindsym $mod+control+h exec gnome-clocks
 bindsym $mod+control+j exec gnome-logs
-for_window [class="Gucharmap"] move scratchpad, move position 10 430,  set 640 640
+for_window [class="Gucharmap"] move scratchpad, resize set 640 640, move position 10 430
 bindsym Mod1+period [class="Gucharmap"] scratchpad show
 bindsym control+Mod1+period exec gucharmap
 bindsym $mod+control+i exec gvim
 bindsym $mod+control+k exec inkscape
 for_window [class="Kvantum Manager"] floating enable
 bindsym $mod+k exec kvantummanager
-for_window [class="Mate-system-monitor"] floating enable, move position 560 48, resize set 800 987
+for_window [class="Mate-system-monitor"] floating enable, resize set 800 987, move position 560 48
 bindsym $mod+control+m exec mate-system-monitor
 bindsym $mod+n exec nitrogen
-for_window [class="Nitrogen"] floating enable, move position 1040 110, resize set 800 880
+for_window [class="Nitrogen"] floating enable, resize set 800 880, move position 1040 110
 bindsym $mod+control+n exec xfce4-notes
-for_window [class="Pamac-manager"] floating enable, move position 510 80, resize set 800 700
+for_window [class="Pamac-manager"] floating enable, resize set 800 700, move position 510 80
 bindsym control+mod1+g exec --no-startup-id pamac-manager
 bindsym $mod+p exec peek
-for_window [class="qt5ct"] floating enable, move position 510 160, resize set 900 720
+for_window [class="qt5ct"] floating enable, resize set 900 720, move position 510 160
 bindsym $mod+control+q exec qt5ct
 for_window [class="Shutter"] floating enable
 bindsym $mod+control+s exec shutter
@@ -306,7 +312,7 @@ exec_always --no-startup-id numlockx on
 exec killall picom &&
 exec_always --no-startup-id picom -b
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
+exec_always --no-startup-id ~/.config/polybar/polybar-start.sh &
 exec --no-startup-id xfce4-power-manager &
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
@@ -366,7 +372,8 @@ bindsym $mod+Shift+Right move right
 
 # Open next workspace in order / Move container to next workspace
 bindsym $mod+Shift+n exec --no-startup-id ~/Data/i3-next-available-workspace/next_available_ws.sh
-bindsym $mod+Shift+m exec --no-startup-id ~/Data/i3-next-available-workspace/next_available_ws.sh -m  # move container to new window
+# Move container to new window
+bindsym $mod+Shift+m exec --no-startup-id ~/Data/i3-next-available-workspace/next_available_ws.sh -m
 
 #############################################
 #ᰜᰜᰜᰜᰜᰜ Navigating Workspaces ᰜᰜᰜᰜᰜᰜ#
@@ -413,7 +420,7 @@ bindsym $mod+a focus parent
 # focus the child "HHVH"
 bindsym $mod+d focus child
 
-# application focus
+# application focus smart|urgent|focus|none
 focus_on_window_activation smart
 
 ######################################
@@ -425,7 +432,7 @@ default_border pixel 6
 default_floating_border pixel 6
 
 # hide_edge_borders none|vertical|horizontal|both|smart
-hide_edge_borders none
+hide_edge_borders smart
 bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
 
 # changing border style
@@ -511,7 +518,7 @@ bindsym mod1+Shift+u exec --no-startup-id wal -i $(cat $HOME/.config/variety/wal
 #########################################################################################
 
 # All these words are empty baskets
-# Carried to the market sqwuare
+# Carried to the market square
 # Trading truth and lies in barter
 # Warranting warn buyer beware
 
