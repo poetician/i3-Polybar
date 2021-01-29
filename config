@@ -149,7 +149,7 @@ bindsym control+Shift+bracketleft gaps all set minus 10
 bindsym control+Shift+bracketright gaps all set plus 10
 
 # popup_during_fullscreen smart|ignore|leave_fullscreen
-popup_during_fullscreen leave_fullscreen
+popup_during_fullscreen smart
 
 ############################################################
 #ᰜᰜᰜᰜᰜᰜ Assigned Applications and Directives ᰜᰜᰜᰜᰜᰜ#
@@ -264,7 +264,7 @@ bindsym $mod+r $rofi -show drun
 # Start Rofi Combi Mode
 bindsym $mod+control+c $rofi -show combi
 # Start Rofi Window Mode
-bindsym $mod+control+w $rofi -show window
+bindsym $mod+w $rofi -show window
 # Start Rofi with Rofi-Shortcuts
 bindsym $mod+control+r exec ~/.config/rofi/rofi-shortcuts/rofi-shortcuts.sh
 # Start Rofi Theme Selector
@@ -276,17 +276,14 @@ for_window [class="Alacritty"] floating enable, resize set 760 700, move positio
 bindsym Mod1+comma [class="Alacritty"] scratchpad show
 bindsym $mod+Return exec alacritty
 
-for_window [class="Arcolinux-welcome-app.py"] floating enable
-bindsym $mod+w exec arcolinux-welcome-app
-
-bindsym $mod+control+f exec catfish; focus
+# bindsym $mod+control+f exec catfish; focus
 
 for_window [class="flameshot"] floating enable, resize set 730 480
 bindsym $mod+g exec flameshot
 
 for_window [class="Gnome-calendar"] resize set 844 800, move position 24 54
 for_window [class="Org.gnome.clocks"] floating enable, resize set 350 477
-bindsym $mod+control+a exec gnome-calendar
+# bindsym $mod+control+a exec gnome-calendar
 bindsym $mod+control+h exec gnome-clocks
 bindsym $mod+control+j exec gnome-logs
 
@@ -341,6 +338,7 @@ exec --no-startup-id nm-applet
 # Parcellite
 exec --no-startup-id parcellite
 # Workrave
+for_window [class="Workrave"] focus
 exec --no-startup-id workrave
 # Volume
 exec --no-startup-id volumeicon
@@ -373,8 +371,8 @@ for_window [class="Gucharmap"] move scratchpad, resize set 800 600, move positio
 bindsym Mod1+period [class="Gucharmap"] scratchpad show
 bindsym control+Mod1+period exec gucharmap
 
-for_window [class=Pystopwatch] floating enable, move scratchpad, resize set 340 150
-bindsym $mod+F8 exec pystopwatch
+for_window [class="Pystopwatch"] floating enable, move scratchpad, resize set 340 150
+bindsym $mod+F8 exec --no-startup-id pystopwatch
 bindsym $mod+control+F8 [class="Pystopwatch"] scratchpad show
 
 for_window [class="Vlc"] floating enable, move scratchpad, move position 1950 70, resize set 640 360
@@ -412,9 +410,9 @@ bindsym $mod+Shift+Up move up 1px
 bindsym $mod+Shift+Right move right 1px
 
 # Open next workspace in order / Move container to next workspace
-bindsym $mod+Shift+n exec --no-startup-id ~/Data/i3-next-available-workspace/next_available_ws.sh
+bindsym $mod+Shift+n exec --no-startup-id ~/.config/i3/scripts/i3-next-available-workspace/next_available_ws.sh
 # Move container to new window
-bindsym $mod+Shift+h exec --no-startup-id ~/Data/i3-next-available-workspace/next_available_ws.sh -m
+bindsym $mod+Shift+h exec --no-startup-id ~/.config/i3/scripts/i3-next-available-workspace/next_available_ws.sh -m
 
 #############################################
 #ᰜᰜᰜᰜᰜᰜ Navigating Workspaces ᰜᰜᰜᰜᰜᰜ#
